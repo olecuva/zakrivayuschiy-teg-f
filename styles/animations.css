@@ -12,3 +12,101 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+.theme-menu__button:disabled::before {
+  animation: shift 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes shift {
+
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(4px);
+  }
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.core {
+  transition: fill 0.3s 0.03s linear;
+}
+
+.main-body {
+  transition: fill 0.3s linear;
+}
+
+.contour {
+  transition: fill 0.1s linear;
+}
+
+.like-icon:hover .core,
+.like-icon:active .core {
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body,
+.like-icon:active .main-body {
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon:hover .core,
+.like-icon:hover .main-body {
+  fill: var(--accent-color);
+}
+
+.like-icon:active .core,
+.like-icon:active .main-body,
+.like-icon.is-liked .core,
+.like-icon.is-liked .main-body,
+.like-icon.is-liked .contour {
+  fill: var(--fill-color);
+}
+
+.like-icon.is-liked .heart {
+  animation: scale 0.3s ease-in 0.1s 2 alternate;
+  transform-origin: center center;
+}
+
+@keyframes scale {
+
+  0% {
+    scale: 1;
+  }
+
+  100% {
+    scale: 1.5;
+  }
+}
+
+.like-icon.is-liked .sparks {
+  animation: opacity 0.3s ease-in 0.3s 2 alternate;
+  transform-origin: center center;
+}
+
+@keyframes opacity {
+
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.like-icon.is-liked .core {
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  transition: fill 0.3s 0.11s linear;
+}

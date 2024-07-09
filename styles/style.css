@@ -15,6 +15,336 @@
 */
 
 .page {
-  min-inline-size: 320px;
+  color: var(--accent-color);
+  font-family: var(--main-font), sans-serif;
+  font-size: 18px;
+  background-image: var(--background-image);
+  background-size: cover;
+  background-attachment: fixed;
+  min-inline-size: 375px;
   min-block-size: 100dvb;
+  font-variation-settings: 'wght' var(--main-font-weight);
+}
+
+button,
+.header,
+.popup {
+  border: var(--content-border);
+  color: var(--accent-color);
+  font-family: var(--accent-font), sans-serif;
+  font-size: 14px;
+  background-color: var(--main-color);
+}
+
+.header {
+  display: grid;
+  justify-items: center;
+  margin: 100px auto;
+  text-transform: uppercase;
+  inline-size: var(--content-width);
+}
+
+.header__title {
+  padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem) 0 20px;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header__subtitle {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+.theme-menu__list {
+  display: grid;
+  gap: 14px;
+  padding-block: 25px;
+}
+
+.theme-menu__button {
+  border: none;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease;
+  position: relative;
+}
+
+.theme-menu__button:before {
+  content: '▶';
+  display: inline-block;
+  margin-inline-start: 2px;
+  margin-inline-end: -10px;
+  opacity: 0;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+}
+
+.theme-menu__button:hover,
+.theme-menu__button:focus-visible {
+  opacity: 0.6;
+}
+
+.theme-menu__button::after {
+  content: '';
+  position: absolute;
+  display: block;
+  background-color: var(--accent-color);
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: 0;
+  inline-size: calc(100% - 20px);
+  block-size: 2px;
+  inset-inline-start: 20px;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  opacity: 1;
+}
+
+.content {
+  display: grid;
+  gap: 50px;
+  inline-size: var(--content-width);
+  margin: 0 auto;
+}
+
+.card {
+  border: var(--content-border);
+  font-family: var(--main-font);
+  background-color: var(--main-color);
+}
+
+.card__title {
+  padding: 3px 10px;
+  font-size: 18px;
+  line-height: 25px;
+  font-variation-settings: 'wght' var(--accent-font-weight);
+  border-block-end: var(--content-border);
+}
+
+.card__image-container {
+  position: relative;
+  inline-size: clamp(23.1875rem, 16.0352rem + 30.5164vw, 43.5rem);
+  height: clamp(23.1875rem, 16.0352rem + 30.5164vw, 43.5rem);
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.grayscale {
+  filter: grayscale(70%);
+}
+
+.saturate {
+  filter: saturate(200%);
+}
+
+.ittencircle {
+  filter: hue-rotate(42deg);
+}
+
+.blur {
+  filter: blur(0.2rem);
+}
+
+.sepia {
+  filter: sepia(50%);
+}
+
+.contrast {
+  filter: contrast(150%);
+}
+
+.complex {
+  filter: brightness(110%) saturate(150%) contrast(120%);
+}
+
+.card__lable {
+  position: absolute;
+  opacity: 0.5;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  text-transform: uppercase;
+  text-shadow: -1px 0 var(--main-color), 0 1px var(--main-color),
+    1px 0 var(--main-color), 0 -1px var(--main-color);
+  inset-inline-end: clamp(0.6875rem, 0.3794rem + 1.3146vw, 1.5625rem);
+  inset-block-start: clamp(1.4375rem, 1.3935rem + 0.1878vw, 1.5625rem);
+  mix-blend-mode: hard-light;
+  paint-order: stroke fill;
+}
+
+@supports (-webkit-text-stroke: 2px var(--main-color)) {
+
+  .card__lable {
+    text-shadow: none;
+    -webkit-text-stroke: 2px var(--main-color);
+  }
+}
+
+.card__content {
+  border-block-start: var(--content-border);
+  display: grid;
+  gap: 25px;
+  padding: 25px;
+}
+
+.card__text {
+  display: grid;
+  gap: 27px;
+  line-height: 21px;
+}
+
+.card__buttons {
+  display: flex;
+  justify-self: end;
+  gap: 4px;
+}
+
+.card__icon-button {
+  border: 2px solid transparent;
+  padding: 0;
+  transition: border 0.3s ease;
+}
+
+.like-icon {
+  block-size: 34px;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: var(--accent-color);
+}
+
+.card__like-button {
+  position: relative;
+  transition: box-shadow 0.3s ease;
+  min-inline-size: 130px;
+  min-block-size: 38px;
+}
+
+.save-button {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-block-end: 100px;
+  padding: 15px 20px;
+  transition: box-shadow 0.3s ease;
+  inline-size: clamp(19.375rem, 18.7368rem + 2.723vw, 21.1875rem);
+}
+
+.button__text {
+  position: relative;
+  z-index: 1;
+  color: var(--main-color);
+  mix-blend-mode: difference;
+}
+
+.card__like-button::before,
+.save-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  display: block;
+  background-color: var(--accent-color);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: 0 0;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.floppy-icon {
+  color: var(--main-color);
+  inline-size: 21px;
+  mix-blend-mode: difference;
+}
+
+.card__like-button:hover::before,
+.save-button:hover::before {
+  transform: scaleX(1);
+}
+
+.card__like-button:focus,
+.save-button:focus {
+  outline: none;
+}
+
+.card__like-button:focus-visible,
+.save-button:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--accent-color);
+}
+
+.popup[open] {
+  padding: 29px 30px;
+  max-inline-size: 357px;
+  text-transform: uppercase;
+}
+
+.popup[open]::backdrop {
+  background-color: rgba(0 0 0/ 0.75);
+}
+
+.popup__container {
+  display: flex;
+  gap: 20px;
+  margin-block-end: 30px;
+}
+
+.popup .floppy-icon {
+  display: block;
+  flex-shrink: 0;
+  inline-size: 39px;
+}
+
+.popup__text {
+  line-height: 150%;
+}
+
+.popup__button {
+  inline-size: 100%;
+  min-block-size: 38px;
+}
+
+@media (width <= 375px) {
+
+  .header,
+  .сontent {
+    inline-size: 100%;
+  }
+
+  .card__title {
+    padding: 3.5px 10px 5.5px;
+    line-height: 22px;
+  }
+
+  .popup[open] {
+    padding: 30px 40px;
+    inline-size: 341px;
+  }
+}
+
+@media (width < 1440px) {
+
+  .floppy-icon {
+    inline-size: 28px;
+  }
 }

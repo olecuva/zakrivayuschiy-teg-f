@@ -4,3 +4,62 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+
+:root.theme-light {
+  --main-font-weight: 400;
+  --accent-font-weight: 700;
+  --main-color: rgb(255 255 255 / 1);
+  --accent-color: rgb(0 0 0 / 1);
+  --background-image: repeating-linear-gradient(
+      90deg,
+      rgb(211 211 211 / 1) 0 2px,
+      rgb(211 211 211 / 0) 2px 4px
+    ),
+    repeating-linear-gradient(
+      rgb(211 211 211 / 1) 0 2px,
+      rgb(211 211 211 / 0) 2px 4px
+    ),
+    linear-gradient(rgb(231 231 231 / 1), rgb(26 26 26 / 1));
+}
+
+:root.theme-dark {
+  --main-font-weight: 465;
+  --accent-font-weight: 785;
+  --main-color: rgb(0 0 0 / 1);
+  --accent-color: rgb(0 204 20 / 1);
+  --background-image: repeating-linear-gradient(
+      90deg,
+      rgb(26 26 26 / 1) 0 2px,
+      rgb(26 26 26 / 0) 2px 4px
+    ),
+    repeating-linear-gradient(
+      rgb(26 26 26 / 1) 0 2px,
+      rgb(26 26 26 / 0) 2px 4px
+    ),
+    linear-gradient(rgb(0 127 12 / 1), rgb(0 67 6 / 1));
+}
+
+.theme-dark .button__text,
+.theme-dark .floppy-icon {
+  color: var(--accent-color);
+}
+
+@media (prefers-color-scheme: dark) {
+
+  :root.theme-auto {
+    --main-font-weight: 465;
+    --accent-font-weight: 785;
+    --main-color: rgb(0 0 0 / 1);
+    --accent-color: rgb(0 204 20 / 1);
+    --background-image: repeating-linear-gradient(
+        90deg,
+        rgb(26 26 26 / 1) 0 2px,
+        rgb(26 26 26 / 0) 2px 4px
+      ),
+      repeating-linear-gradient(
+        rgb(26 26 26 / 1) 0 2px,
+        rgb(26 26 26 / 0) 2px 4px
+      ),
+      linear-gradient(rgb(0 127 12 / 1), rgb(0 67 6 / 1));
+  }
+}
