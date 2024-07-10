@@ -33,7 +33,7 @@
 .accent {
   border: var(--content-border);
   color: var(--accent-color);
-  font-family: var(--accent-font), sans-serif;
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   background-color: var(--main-color);
 }
@@ -175,7 +175,7 @@
 .card__label {
   position: absolute;
   opacity: 0.5;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   text-transform: uppercase;
   text-shadow: -1px 0 var(--main-color), 0 1px var(--main-color),
