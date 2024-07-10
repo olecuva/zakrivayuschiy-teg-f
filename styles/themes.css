@@ -63,8 +63,8 @@
       linear-gradient(rgb(0 127 12 / 1), rgb(0 67 6 / 1));
   }
 
-  .theme-dark .button__text,
-  .theme-dark .floppy-icon {
-  color: var(--accent-color);
-}
+  .theme-auto .button__text,
+  .theme-auto .floppy-icon {
+    color: var(--accent-color);
+  }
 }

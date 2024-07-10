@@ -30,9 +30,7 @@
   inline-size: var(--content-width);
 }
 
-button,
-.header,
-.popup {
+.accent {
   border: var(--content-border);
   color: var(--accent-color);
   font-family: var(--accent-font), sans-serif;
@@ -66,6 +64,7 @@ button,
   position: relative;
   border: none;
   text-transform: uppercase;
+  background-color: var(--main-color);
   transition: opacity 0.3s ease;
 }
 
@@ -120,7 +119,6 @@ button,
 
 .card {
   border: var(--content-border);
-  font-family: var(--main-font);
   background-color: var(--main-color);
 }
 
@@ -139,11 +137,11 @@ button,
 }
 
 .card__image {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  display: block;
 }
 
 .grayscale {
@@ -188,15 +186,16 @@ button,
   paint-order: stroke fill;
 }
 
-@supports (-webkit-text-stroke: 2px var(--main-color)) {
+@supports ((text-stroke: 2px var(--main-color)) or (-webkit-text-stroke: 2px var(--main-color))) {
 
   .card__label {
     text-shadow: none;
+    text-stroke: 2px var(--main-color);
     -webkit-text-stroke: 2px var(--main-color);
   }
 }
 
-.card__content {
+.card__content-section {
   display: grid;
   gap: 25px;
   border-block-start: var(--content-border);
@@ -217,12 +216,13 @@ button,
 
 .card__icon-button {
   border: 2px solid transparent;
-  padding: 0;
+  background-color: var(--main-color);
   transition: border 0.3s ease;
 }
 
 .like-icon {
   block-size: 34px;
+  display: block;
 }
 
 .card__icon-button:focus {
@@ -234,14 +234,12 @@ button,
 }
 
 .card__like-button {
-  position: relative;
-  transition: box-shadow 0.3s ease;
   min-inline-size: 130px;
-  min-block-size: 38px;
+  max-block-size: 38px;
+  line-height: 90%;
 }
 
 .save-button {
-  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-self: center;
@@ -250,8 +248,50 @@ button,
   gap: 8px;
   margin-block-end: 100px;
   padding: 15px 20px;
-  transition: box-shadow 0.3s ease;
   inline-size: clamp(19.375rem, 18.7368rem + 2.723vw, 21.1875rem);
+}
+
+.floppy-icon {
+  color: var(--main-color);
+  inline-size: 21px;
+  mix-blend-mode: difference;
+}
+
+.dialog[open] {
+  padding: 29px 30px;
+  text-transform: uppercase;
+  max-inline-size: 357px;
+}
+
+.dialog[open]::backdrop {
+  background-color: rgba(0 0 0/ 0.75);
+}
+
+.dialog__container {
+  display: flex;
+  gap: 20px;
+  margin-block-end: 30px;
+}
+
+.dialog .floppy-icon {
+  display: block;
+  flex-shrink: 0;
+  inline-size: 39px;
+}
+
+.dialog__text {
+  line-height: 150%;
+}
+
+.dialog__button {
+  inline-size: 100%;
+  min-block-size: 38px;
+  text-transform: uppercase;
+}
+
+.button {
+  position: relative;
+  transition: box-shadow 0.3s ease;
 }
 
 .button__text {
@@ -262,7 +302,8 @@ button,
 }
 
 .card__like-button::before,
-.save-button::before {
+.save-button::before,
+.dialog__button::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -275,56 +316,22 @@ button,
   block-size: 100%;
 }
 
-.floppy-icon {
-  color: var(--main-color);
-  inline-size: 21px;
-  mix-blend-mode: difference;
-}
-
 .card__like-button:hover::before,
-.save-button:hover::before {
+.save-button:hover::before,
+.dialog__button:hover::before {
   transform: scaleX(1);
 }
 
 .card__like-button:focus,
-.save-button:focus {
+.save-button:focus,
+.dialog__button:focus {
   outline: none;
 }
 
 .card__like-button:focus-visible,
-.save-button:focus-visible {
+.save-button:focus-visible,
+.dialog__button:focus-visible {
   box-shadow: 2px 2px 0 0 var(--accent-color);
-}
-
-.popup[open] {
-  padding: 29px 30px;
-  text-transform: uppercase;
-  max-inline-size: 357px;
-}
-
-.popup[open]::backdrop {
-  background-color: rgba(0 0 0/ 0.75);
-}
-
-.popup__container {
-  display: flex;
-  gap: 20px;
-  margin-block-end: 30px;
-}
-
-.popup .floppy-icon {
-  display: block;
-  flex-shrink: 0;
-  inline-size: 39px;
-}
-
-.popup__text {
-  line-height: 150%;
-}
-
-.popup__button {
-  inline-size: 100%;
-  min-block-size: 38px;
 }
 
 @media (width <= 375px) {
@@ -342,9 +349,9 @@ button,
     line-height: 22px;
   }
 
-  .popup[open] {
-    padding-block: clamp(1.25rem, -6.0227rem + 36.3636vw, 2.5rem);
+  .dialog[open] {
     padding-inline: clamp(0.9375rem, -4.517rem + 27.2727vw, 1.875rem);
+    padding-block: clamp(1.25rem, -6.0227rem + 36.3636vw, 2.5rem);
     inline-size: calc((341 / 375) * 100%);
   }
 }
