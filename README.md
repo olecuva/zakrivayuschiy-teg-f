@@ -17,6 +17,6 @@ ________________________________________
 * Линтеры
 * PerfectPixel
 
-[Ссылка на репозиторий](https://github.com/olecuva/slozhno-sosredotochitsya.git)
+[Ссылка на репозиторий](https://github.com/olecuva/zakrivayuschiy-teg-f.git)
 
 Автор: Куватова Олеся
