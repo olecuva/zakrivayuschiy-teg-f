@@ -341,7 +341,7 @@
   }
 
   .header__title {
-    font-size: 2.5rem;
+    font-size: clamp(2.5rem, -0.7727rem + 16.3636vw, 3.0625rem);;
   }
 
   .card__title {
@@ -350,8 +350,8 @@
   }
 
   .dialog[open] {
-    padding-inline: clamp(0.9375rem, -4.517rem + 27.2727vw, 1.875rem);
-    padding-block: clamp(1.25rem, -6.0227rem + 36.3636vw, 2.5rem);
+    padding-block: clamp(0.9375rem, -4.517rem + 27.2727vw, 1.875rem);
+    padding-inline: clamp(1.25rem, -6.0227rem + 36.3636vw, 2.5rem);
     inline-size: calc((341 / 375) * 100%);
   }
 }
