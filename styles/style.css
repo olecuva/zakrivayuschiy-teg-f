@@ -45,8 +45,8 @@
 }
 
 .accent {
-  border: var(--content-border, 2px solid var(--accent-color, rgb(0 0 0 / 1)));
-  color: var(--accent-color, rgb(0 0 0 / 1));
+  border: var(--content-border, 2px solid currentColor);
+  color: currentColor;
   font-family: var(--accent-font, 'PressStart2P'), fantasy;
   font-size: 14px;
   background-color: var(--main-color, rgb(255 255 255 / 1));
@@ -103,7 +103,7 @@
   content: '';
   position: absolute;
   display: block;
-  background-color: var(--accent-color, rgb(0 0 0 / 1));
+  background-color: currentColor;
   transition: transform 0.3s ease;
   transform: scaleX(0);
   transform-origin: 0;
@@ -132,15 +132,12 @@
 }
 
 .card {
-  border: var(--content-border, 2px solid var(--accent-color, rgb(0 0 0 / 1)));
+  border: var(--content-border, 2px solid currentColor);
   background-color: var(--main-color, rgb(255 255 255 / 1));
 }
 
 .card__title {
-  border-block-end: var(
-    --content-border,
-    2px solid var(--accent-color, rgb(0 0 0 / 1))
-  );
+  border-block-end: var(--content-border, 2px solid currentColor);
   padding: 3px 10px;
   font-size: 18px;
   line-height: 25px;
@@ -196,10 +193,10 @@
   font-size: 14px;
   text-transform: uppercase;
   text-shadow:
-    -1px 0 var(--main-color, rgb(255 255 255 / 1)),
-    0 1px var(--main-color, rgb(255 255 255 / 1)),
-    1px 0 var(--main-color, rgb(255 255 255 / 1)),
-    0 -1px var(--main-color, rgb(255 255 255 / 1));
+    -1px 0 inherit,
+    0 1px inherit,
+    1px 0 inherit,
+    0 -1px inherit;
   inset-inline-end: clamp(0.6875rem, 0.3794rem + 1.3146vw, 1.5625rem);
   inset-block-start: clamp(1.4375rem, 1.3935rem + 0.1878vw, 1.5625rem);
   mix-blend-mode: hard-light;
@@ -212,7 +209,6 @@
 ) {
 
   .card__label {
-    text-shadow: none;
     -webkit-text-stroke: 2px var(--main-color, rgb(255 255 255 / 1));
     text-stroke: 2px var(--main-color, rgb(255 255 255 / 1));
   }
@@ -221,10 +217,7 @@
 .card__content-section {
   display: grid;
   gap: 25px;
-  border-block-start: var(
-    --content-border,
-    2px solid var(--accent-color, rgb(0 0 0 / 1))
-  );
+  border-block-start: var(--content-border, 2px solid currentColor);
   padding: 25px;
 }
 
@@ -247,8 +240,8 @@
 }
 
 .like-icon {
-  block-size: 34px;
   display: block;
+  block-size: 34px;
 }
 
 .card__icon-button:focus {
@@ -256,13 +249,13 @@
 }
 
 .card__icon-button:focus-visible {
-  border-color: var(--accent-color, rgba(0 0 0/ 1));
+  border-color: currentColor;
 }
 
 .card__like-button {
+  line-height: 90%;
   min-inline-size: 130px;
   max-block-size: 38px;
-  line-height: 90%;
 }
 
 .button {
@@ -282,7 +275,7 @@
   position: absolute;
   inset: 0;
   display: block;
-  background-color: var(--accent-color, rgba(0 0 0/ 1));
+  background-color: currentColor;
   transition: transform 0.5s ease-in-out;
   transform: scaleX(0);
   transform-origin: 0 0;
@@ -299,7 +292,7 @@
 }
 
 .animation-effects:focus-visible {
-  box-shadow: 2px 2px 0 0 var(--accent-color, rgba(0 0 0/ 1));
+  box-shadow: 2px 2px 0 0 currentColor;
 }
 
 .save-button {
@@ -347,9 +340,9 @@
 }
 
 .dialog__button {
+  text-transform: uppercase;
   inline-size: 100%;
   min-block-size: 38px;
-  text-transform: uppercase;
 }
 
 @media (width <= 375px) {
@@ -368,8 +361,8 @@
   }
 
   .dialog[open] {
-    padding-block: clamp(0.9375rem, -4.517rem + 27.2727vw, 1.875rem);
     padding-inline: clamp(1.25rem, -6.0227rem + 36.3636vw, 2.5rem);
+    padding-block: clamp(0.9375rem, -4.517rem + 27.2727vw, 1.875rem);
     inline-size: calc((341 / 375) * 100%);
   }
 }

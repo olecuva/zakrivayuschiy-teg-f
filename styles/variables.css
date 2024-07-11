@@ -19,5 +19,5 @@
     ),
     linear-gradient(rgb(231 231 231 / 1), rgb(26 26 26 / 1));
   --content-width: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
-  --content-border: 2px solid var(--accent-color, rgb(0 0 0 / 1));
+  --content-border: 2px solid currentColor;
 }
