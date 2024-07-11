@@ -1,8 +1,8 @@
 {
-  "name": "test-project",
+  "name": "zakrivayuschiy-teg-f",
   "version": "1.0.0",
   "description": "Не забудьте установить зависимости `npm i`",
-  "main": "index.js",
+  "main": "stylelint.config.js",
   "scripts": {
     "test": "echo 'Привет!'",
     "check": "prettier --check './**/*.{html,css,js}'",
@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "prettier": "^2.8.8",
-    "stylelint": "^14.16.1"
+    "prettier": "^3.3.2",
+    "stylelint": "^16.6.1"
   }
 }
