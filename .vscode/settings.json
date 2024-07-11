@@ -2,5 +2,6 @@
   "cSpell.words": [
     "медизапрос",
     "перфекционизму"
-  ]
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
