@@ -156,20 +156,20 @@
   }
 
   .theme-auto .accent {
-  background-color: var(--main-color, rgb(0 0 0 / 1));
-}
+    background-color: var(--main-color, rgb(0 0 0 / 1));
+  }
 
   .theme-auto .card {
-  background-color: var(--main-color, rgb(0 0 0 / 1));
-}
+    background-color: var(--main-color, rgb(0 0 0 / 1));
+  }
 
   .theme-auto .card__title {
-  font-variation-settings: 'wght' var(--accent-font-weight, 785);
-}
+    font-variation-settings: 'wght' var(--accent-font-weight, 785);
+  }
 
   @supports (
     (text-stroke: 2px var(--main-color)) or
-    (-webkit-text-stroke: 2px var(--main-color))
+      (-webkit-text-stroke: 2px var(--main-color))
   ) {
 
     .theme-auto .card__label {
