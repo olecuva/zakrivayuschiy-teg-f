@@ -40,7 +40,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-
+  
   :root.theme-auto {
     --main-font-weight: 465;
     --accent-font-weight: 785;
